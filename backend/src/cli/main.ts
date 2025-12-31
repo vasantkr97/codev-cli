@@ -5,6 +5,7 @@ import chalk from "chalk";
 import figlet from "figlet";
 import { Command } from "commander";
 import { login, logout, whoami } from "./commands/auth/login";
+import { wakeUp } from "./commands/ai/wakeUp";
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ async function main() {
     program.addCommand(login);
     program.addCommand(whoami);
     program.addCommand(logout);
+    program.addCommand(wakeUp);
 
     program.action(() => {
         program.help();

@@ -1,3 +1,5 @@
+import prisma from "../lib/db";
+
 
 
 
@@ -11,13 +13,20 @@ export class ChatService {
      * @param { string } title - Optional Conversation Title
      */
 
-    async createConversation( userId, mode = "chat", title = null) {
+    async createConversation( userId: string, mode = "chat", title = null) {
 
         return await prisma.conversation.create({
             data: {
                 userId,
                 mode,
                 title: title || `New ${mode} conversation`
+            },
+            include: {
+                messages: {
+                    orderBy: {
+                        createdAt: 'asc'
+                    }
+                }
             }
         })
     }
@@ -29,7 +38,7 @@ export class ChatService {
      * @param { string } mode - chat, tool, or agent
      */
 
-    async getOrCreateConversation(userId, conversationId, mode = "chat") {
+    async getOrCreateConversation(userId: string, conversationId: string, mode = "chat") {
         if (conversationId) {
             const conversation = await prisma.conversation.findFirst({
                 where: {
@@ -61,7 +70,7 @@ export class ChatService {
      * @param { string | Object } content - Message Content
      */
 
-    async addMessage(conversationId, role, content) {
+    async addMessage(conversationId: string, role: string, content: string | object) {
         const contentStr = typeof content === "string" ? content : JSON.stringify(content);
 
         return await prisma.message.create({
@@ -78,7 +87,7 @@ export class ChatService {
      * @param { string } conversationId - Conversation ID
      */
 
-    async getMessages(conversationId) {
+    async getMessages(conversationId: string) {
         const messages = await prisma.message.findMany({
             where: {
                 conversationId
@@ -91,7 +100,7 @@ export class ChatService {
         //Parse JSON content back to objects if needed
         return messages.map((message) => ({
             ...message,
-            content: typeof message.content === "string" ? JSON.parse(message.content) : message.content
+            content: this.parseContent(message.content)
         }))
     }
 
@@ -100,7 +109,7 @@ export class ChatService {
      * @param { string } userId - User ID
      */
 
-    async getUserConversations(userId) {
+    async getUserConversations(userId: string) {
         return await prisma.conversation.findMany({
             where: { userId },
             orderBy: {
@@ -120,7 +129,7 @@ export class ChatService {
      * @param { string } ConversationId - ConversationId Id
      * @param { string } userId - User ID (for security)
      */
-    async deleteConversation(conversationId, userId) {
+    async deleteConversation(conversationId: string, userId: string) {
         return await prisma.conversation.findMany({
             where: {
                 id: conversationId,
@@ -135,8 +144,8 @@ export class ChatService {
      * @param { string } title - New Title
      */
 
-    async updateTitle(conversationId, title) {
-        return await prisma.conversation.findFirst({
+    async updateTitle(conversationId: string, title: string) {
+        return await prisma.conversation.update({
             where: { id: conversationId } ,
             data: { title }
         })
@@ -146,7 +155,7 @@ export class ChatService {
      * helper tp parse Content {Json to  string}
      */
 
-    parseContent(content) {
+    parseContent(content: string) {
         try {
             return JSON.parse(content)
         } catch {
@@ -159,7 +168,7 @@ export class ChatService {
      * @param { Array } messages - Database messages
      */
 
-    formatMessagesForAI(messages) {
+    formatMessagesForAI(messages: any[]) {
         return messages.map((message) => ({
             role: message.role,
             content: typeof message.content === "string" ? message.content : JSON.stringify(message.content),

@@ -1,6 +1,6 @@
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { streamText, generateObject } from "ai";
-import { config } from "../../config/google.config";
+import { config } from "../config/google.config";
 import chalk from "chalk";
 
 
@@ -129,7 +129,7 @@ export class AIService {
      * @returns {Promise<Object>} Full response with content, tool calls, and usage
      */
 
-    async getMessage(messages: any, tools=undefined) {
+    async getMessage(messages: any, tools = undefined) {
         let fullResponse = "";
         const result = await this.sendMessage(messages, (chunk: any) => {
             fullResponse += chunk;
@@ -138,7 +138,7 @@ export class AIService {
         return result.content;
     }
 
-    
+
     /**
      *Generate structured output using Zod Schema
      *@param {Object} schema - Zod Schema for the output
@@ -146,23 +146,19 @@ export class AIService {
      *@returns {Promise<Object>} Parsed objectt matching the Schema
      */
 
-     async generateStructured(schema: any, prompt: string) {
-        try {
-            const result = await generateObject({
-                model: this.model,
-                schema: schema,
-                prompt: prompt,
-            });
+    // async generateStructured(schema: any, prompt: string) {
+    //     try {
+    //         const result = await generateObject({
+    //             model: this.model,
+    //             schema: schema,
+    //             prompt: prompt,
+    //         });
 
-            return result.object;
-        } catch (error: any) {
-            console.error(chalk.red("AI Structured output Generation error:"), error.message);
-            console.error(chalk.red("Full errror:"), error);
-            throw error;
-        }
-     }
-
-
-
-
+    //         return result.object;
+    //     } catch (error: any) {
+    //         console.error(chalk.red("AI Structured output Generation error:"), error.message);
+    //         console.error(chalk.red("Full errror:"), error);
+    //         throw error;
+    //     }
+    // }
 }

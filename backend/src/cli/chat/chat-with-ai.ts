@@ -1,7 +1,6 @@
 import chalk from "chalk";
-import { marked } from "marked";
-import { markedTerminal } from "marked-terminal";
-import { AIService } from "../ai/google-service";
+import { renderMarkdownToTerminal } from "../../utils/terminal-markdown";
+import { AIService } from "../../services/google.service";
 import { ChatService } from "../../services/chat.service";
 import { getStoredToken } from "../commands/auth/login";
 import yoctoSpinner from "yocto-spinner";
@@ -9,29 +8,6 @@ import prisma from "../../lib/db";
 import boxen from "boxen";
 import { text, isCancel, cancel, intro, outro } from "@clack/prompts";
 
-
-
-
-// Configure marked to use terminal renderer
-marked.use(
-    markedTerminal({
-        // Styling options for terminal output
-        code: chalk.cyan,
-        blockquote: chalk.gray.italic,
-        heading: chalk.green.bold,
-        firstHeading: chalk.magenta.underline.bold,
-        hr: chalk.reset,
-        listitem: chalk.reset,
-        list: chalk.reset,
-        paragraph: chalk.reset,
-        strong: chalk.bold,
-        em: chalk.italic,
-        codespan: chalk.yellow.bgBlack,
-        del: chalk.dim.gray.strikethrough,
-        link: chalk.blue.underline,
-        href: chalk.blue.underline,
-    })
-);
 
 const aiService = new AIService();
 const chatService = new ChatService();
@@ -86,7 +62,6 @@ async function initConversation(userId, conversationId, mode) {
 
     console.log(conversationInfo)
 
-    //Display existing messages if any
     if (conversation.messages?.length > 0) {
         console.log(chalk.yellow("Previous messages:\n"))
         displayMessages(conversation.messages)
@@ -96,7 +71,7 @@ async function initConversation(userId, conversationId, mode) {
 }
 
 function displayMessages(messages: any[]) {
-    messages.forEach((msg) => {
+    for (const msg of messages) {
         if (msg.role === "user") {
             const userBox = boxen(chalk.white(msg.content), {
                 padding: 1,
@@ -109,8 +84,8 @@ function displayMessages(messages: any[]) {
             console.log(userBox);
         } else {
             // Render markdown for assistant messages
-            const renderedContent = marked.parse(msg.content) as string;
-            const assistantBox = boxen(renderedContent.trim(), {
+            const renderedContent = renderMarkdownToTerminal(msg.content);
+            const assistantBox = boxen(renderedContent, {
                 padding: 1,
                 margin: { left: 2, bottom: 1 },
                 borderStyle: "round",
@@ -120,7 +95,7 @@ function displayMessages(messages: any[]) {
             });
             console.log(assistantBox);
         }
-    });
+    }
 }
 
 async function saveMessage(conversationId: any, role: any, content: any) {
@@ -157,10 +132,10 @@ async function getAIResponse(conversationId: any) {
         }, undefined, null);
 
         console.log("\n");
-        const renderedMarkdown = marked.parse(fullResponse);
+        const renderedMarkdown = renderMarkdownToTerminal(fullResponse);
+        // Trim to remove extra whitespace and ensure clean output
         console.log(renderedMarkdown);
-        console.log(chalk.gray("─".repeat(60)));
-        console.log("\n");  
+        console.log("\n" + chalk.gray("─".repeat(60)) + "\n");
 
         // Add newline after streaming completes, then show closing divider
         // console.log("\n");
@@ -185,13 +160,13 @@ async function updateConversationTitle(conversationId: any, userInput: any, mess
 async function chatLoop(conversation: any) {
     const helpBox = boxen(
         `${chalk.gray('• Type your message and press Enter')}\n${chalk.gray('• Markdown formatting is supported in responses')}\n${chalk.gray('• Type "exit" to end conversation')}\n${chalk.gray('• Press Ctrl+C to quit anytime')}`,
-    {
-      padding: 1,
-      margin: { bottom: 1 },
-      borderStyle: "round",
-      borderColor: "gray",
-      dimBorder: true,
-    })
+        {
+            padding: 1,
+            margin: { bottom: 1 },
+            borderStyle: "round",
+            borderColor: "gray",
+            dimBorder: true,
+        })
 
     console.log(helpBox)
 
@@ -234,7 +209,7 @@ async function chatLoop(conversation: any) {
         }
 
         //Save user message to db
-        await saveMessage(conversation.id, "user", userInput) 
+        await saveMessage(conversation.id, "user", userInput)
 
         //Get messages count before AI response
         const messages = await chatService.getMessages(conversation.id)
