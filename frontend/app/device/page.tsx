@@ -1,13 +1,13 @@
 "use client"
 
-import { authClient } from "@lib/auth-client"
+import { authClient } from "@/lib/auth-client"
 import { ShieldAlert } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 
 export default function DeviceAuthorizationPage() {
-    const [userCode, setUserCode] = useState("");
+    const [userCode, setUserCode] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
@@ -24,7 +24,7 @@ export default function DeviceAuthorizationPage() {
                 query: { user_code: formattedCode}
             })
 
-            if (response.error) {
+            if (response.data) {
                 router.push(`/approve?user_code=${formattedCode}`)
             }
         } catch (error) {

@@ -1,0 +1,100 @@
+﻿node_modules/@types/marked-terminal/node_modules/marked/lib/marked.d.ts(561,2): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/@types/node/http.d.ts(2131,52): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'WebSocket'.
+node_modules/@types/node/http.d.ts(2135,53): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'CloseEvent'.
+node_modules/@types/node/http.d.ts(2139,55): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'MessageEvent'.
+node_modules/@types/node/web-globals/fetch.d.ts(5,79): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'CloseEvent'.
+node_modules/@types/node/web-globals/fetch.d.ts(6,79): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'ErrorEvent'.
+node_modules/@types/node/web-globals/fetch.d.ts(7,80): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'EventSource'.
+node_modules/@types/node/web-globals/fetch.d.ts(8,77): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'FormData'.
+node_modules/@types/node/web-globals/fetch.d.ts(9,76): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'Headers'.
+node_modules/@types/node/web-globals/fetch.d.ts(10,81): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'MessageEvent'.
+node_modules/@types/node/web-globals/fetch.d.ts(11,76): error TS2724: '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member named 'Request'. Did you mean 'request'?
+node_modules/@types/node/web-globals/fetch.d.ts(12,80): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'RequestInit'.
+node_modules/@types/node/web-globals/fetch.d.ts(13,77): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'Response'.
+node_modules/@types/node/web-globals/fetch.d.ts(14,81): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'ResponseInit'.
+node_modules/@types/node/web-globals/fetch.d.ts(15,78): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'WebSocket'.
+node_modules/@types/node/web-globals/fetch.d.ts(24,107): error TS2339: Property 'CloseEvent' does not exist on type 'typeof import("C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index")'.
+node_modules/@types/node/web-globals/fetch.d.ts(27,107): error TS2339: Property 'ErrorEvent' does not exist on type 'typeof import("C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index")'.
+node_modules/@types/node/web-globals/fetch.d.ts(30,109): error TS2339: Property 'EventSource' does not exist on type 'typeof import("C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index")'.
+node_modules/@types/node/web-globals/fetch.d.ts(33,103): error TS2339: Property 'FormData' does not exist on type 'typeof import("C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index")'.
+node_modules/@types/node/web-globals/fetch.d.ts(36,101): error TS2339: Property 'Headers' does not exist on type 'typeof import("C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index")'.
+node_modules/@types/node/web-globals/fetch.d.ts(40,25): error TS2339: Property 'MessageEvent' does not exist on type 'typeof import("C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index")'.
+node_modules/@types/node/web-globals/fetch.d.ts(43,101): error TS2551: Property 'Request' does not exist on type 'typeof import("C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index")'. Did you mean 'request'?
+node_modules/@types/node/web-globals/fetch.d.ts(48,103): error TS2339: Property 'Response' does not exist on type 'typeof import("C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index")'.
+node_modules/@types/node/web-globals/fetch.d.ts(53,105): error TS2339: Property 'WebSocket' does not exist on type 'typeof import("C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index")'.
+node_modules/@types/node/worker_threads.d.ts(71,14): error TS2614: Module '"undici-types"' has no exported member 'MessageEvent'. Did you mean to use 'import MessageEvent from "undici-types"' instead?
+node_modules/bun-types/bun.d.ts(422,42): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'RequestCredentials'.
+node_modules/bun-types/fetch.d.ts(23,91): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'Headers'.
+node_modules/bun-types/fetch.d.ts(24,91): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'Request'.
+node_modules/bun-types/fetch.d.ts(25,92): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'Response'.
+node_modules/bun-types/fetch.d.ts(26,96): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'ResponseInit'.
+node_modules/bun-types/fetch.d.ts(29,37): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'RequestInit'.
+node_modules/bun-types/globals.d.ts(56,92): error TS2694: Namespace '"C:/Users/HP/Desktop/CodeV-Cli/backend/node_modules/undici-types/index"' has no exported member 'EventSource'.
+node_modules/undici-types/index.d.ts(1,24): error TS2307: Cannot find module 'node/node_modules/undici-types/dispatcher' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(2,58): error TS2307: Cannot find module 'node/node_modules/undici-types/global-dispatcher' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(3,50): error TS2307: Cannot find module 'node/node_modules/undici-types/global-origin' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(4,51): error TS2307: Cannot find module 'node/node_modules/undici-types/handlers' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(5,18): error TS2307: Cannot find module 'node/node_modules/undici-types/pool' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(7,19): error TS2307: Cannot find module 'node/node_modules/undici-types/agent' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(8,61): error TS2307: Cannot find module 'node/node_modules/undici-types/api' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(9,26): error TS2307: Cannot find module 'node/node_modules/undici-types/balanced-pool' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(10,20): error TS2307: Cannot find module 'node/node_modules/undici-types/client' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(11,28): error TS2307: Cannot find module 'node/node_modules/undici-types/connector' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(12,31): error TS2307: Cannot find module 'node/node_modules/undici-types/env-http-proxy-agent' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(13,20): error TS2307: Cannot find module 'node/node_modules/undici-types/errors' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(14,23): error TS2307: Cannot find module 'node/node_modules/undici-types/h2c-client' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(15,26): error TS2307: Cannot find module 'node/node_modules/undici-types/interceptors' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(16,23): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-agent' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(17,53): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-call-history' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(18,24): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-client' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(19,24): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-errors' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(20,22): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-pool' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(21,24): error TS2307: Cannot find module 'node/node_modules/undici-types/proxy-agent' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(22,24): error TS2307: Cannot find module 'node/node_modules/undici-types/retry-agent' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(23,26): error TS2307: Cannot find module 'node/node_modules/undici-types/retry-handler' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(24,31): error TS2307: Cannot find module 'node/node_modules/undici-types/snapshot-agent' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(26,15): error TS2307: Cannot find module 'node/node_modules/undici-types/cache' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(27,15): error TS2307: Cannot find module 'node/node_modules/undici-types/content-type' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(28,15): error TS2307: Cannot find module 'node/node_modules/undici-types/cookies' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(29,15): error TS2307: Cannot find module 'node/node_modules/undici-types/diagnostics-channel' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(30,15): error TS2307: Cannot find module 'node/node_modules/undici-types/eventsource' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(31,15): error TS2307: Cannot find module 'node/node_modules/undici-types/fetch' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(32,15): error TS2307: Cannot find module 'node/node_modules/undici-types/formdata' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(33,31): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-interceptor' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(34,15): error TS2307: Cannot find module 'node/node_modules/undici-types/util' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(35,15): error TS2307: Cannot find module 'node/node_modules/undici-types/websocket' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(43,35): error TS2307: Cannot find module 'node/node_modules/undici-types/dispatcher' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(44,29): error TS2307: Cannot find module 'node/node_modules/undici-types/pool' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(45,41): error TS2307: Cannot find module 'node/node_modules/undici-types/handlers' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(46,42): error TS2307: Cannot find module 'node/node_modules/undici-types/handlers' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(47,38): error TS2307: Cannot find module 'node/node_modules/undici-types/retry-handler' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(48,37): error TS2307: Cannot find module 'node/node_modules/undici-types/balanced-pool' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(49,31): error TS2307: Cannot find module 'node/node_modules/undici-types/client' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(50,34): error TS2307: Cannot find module 'node/node_modules/undici-types/h2c-client' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(51,39): error TS2307: Cannot find module 'node/node_modules/undici-types/connector' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(52,31): error TS2307: Cannot find module 'node/node_modules/undici-types/errors' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(53,30): error TS2307: Cannot find module 'node/node_modules/undici-types/agent' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(54,44): error TS2307: Cannot find module 'node/node_modules/undici-types/global-dispatcher' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(55,44): error TS2307: Cannot find module 'node/node_modules/undici-types/global-dispatcher' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(56,32): error TS2307: Cannot find module 'node/node_modules/undici-types/api' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(57,31): error TS2307: Cannot find module 'node/node_modules/undici-types/api' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(58,33): error TS2307: Cannot find module 'node/node_modules/undici-types/api' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(59,32): error TS2307: Cannot find module 'node/node_modules/undici-types/api' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(60,32): error TS2307: Cannot find module 'node/node_modules/undici-types/api' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(61,35): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-client' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(62,33): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-pool' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(63,34): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-agent' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(64,38): error TS2307: Cannot find module 'node/node_modules/undici-types/snapshot-agent' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(65,40): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-call-history' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(66,43): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-call-history' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(67,35): error TS2307: Cannot find module 'node/node_modules/undici-types/mock-errors' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(68,30): error TS2307: Cannot find module 'node/node_modules/undici-types/fetch' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(69,32): error TS2307: Cannot find module 'node/node_modules/undici-types/fetch' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(70,33): error TS2307: Cannot find module 'node/node_modules/undici-types/fetch' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(71,32): error TS2307: Cannot find module 'node/node_modules/undici-types/fetch' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(72,33): error TS2307: Cannot find module 'node/node_modules/undici-types/formdata' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(73,31): error TS2307: Cannot find module 'node/node_modules/undici-types/cache' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(74,37): error TS2307: Cannot find module 'node/node_modules/undici-types/interceptors' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(76,37): error TS2307: Cannot find module 'node/node_modules/undici-types/cache-interceptor' or its corresponding type declarations.
+node_modules/undici-types/index.d.ts(77,37): error TS2307: Cannot find module 'node/node_modules/undici-types/cache-interceptor' or its corresponding type declarations.
+src/cli/chat/chat-with-ai.ts(13,3): error TS2559: Type 'TerminalRenderer' has no properties in common with type 'MarkedExtension<string, string>'.

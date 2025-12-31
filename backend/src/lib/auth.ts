@@ -13,7 +13,7 @@ export const auth = betterAuth({
     plugins: [
     deviceAuthorization({ 
       verificationUri: "/device", 
-    }), 
+    }),
   ],
     socialProviders: {
         github: {

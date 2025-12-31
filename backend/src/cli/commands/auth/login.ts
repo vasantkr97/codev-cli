@@ -12,6 +12,10 @@ import os from "node:os";
 import open from "open"
 import { logger } from "better-auth";
 import prisma from "../../../lib/db";
+import dotenv from "dotenv";
+
+// Load .env from the backend directory (relative to this file's location)
+dotenv.config({ path: path.resolve(__dirname, "../../../../.env") });
 
 const DEMO_URL = "http://localhost:3005";
 const CLIENT_ID = process.env.GITHUB_CLIENT_ID;
@@ -54,7 +58,6 @@ export async function storeToken(token: any) {
     }
 }
 
-
 export async function clearStoredToken() {
     try {
         await fs.unlink(TOKEN_FILE);
@@ -65,7 +68,6 @@ export async function clearStoredToken() {
         return false;
     }
 }
-
 
 export async function isTokenExpired() {
     const token = await getStoredToken();
@@ -116,8 +118,8 @@ export async function loginAction(opts: any) {
         process.exit(1)
     }
 
-    const existingToken = true;
-    const expired = true;
+    const existingToken = await getStoredToken();
+    const expired = await isTokenExpired();
 
     if (existingToken && !expired) {
         const confirmLogin = await confirm({
@@ -127,6 +129,11 @@ export async function loginAction(opts: any) {
 
         if (isCancel(confirmLogin)) {
             cancel("Login cancelled");
+            process.exit(1);
+        }
+
+        if (!confirmLogin) {
+            outro(chalk.green("Already logged in. No action needed."));
             process.exit(0);
         }
     }
@@ -184,7 +191,7 @@ export async function loginAction(opts: any) {
             initialValue: true,
         })
 
-        if (isCancel(shouldOpen) && shouldOpen) {
+        if (!isCancel(shouldOpen) && shouldOpen) {
             const urlOpen = verification_uri_complete || verification_uri;
             await open(urlOpen);
         }
@@ -208,11 +215,11 @@ export async function loginAction(opts: any) {
         if (token) {
             //store the token
             const saved = await storeToken(token);
+
             if (!saved) {
                 console.log(
                     chalk.yellow("Failed to save authentication token")
                 );
-
                 console.log(
                     chalk.gray("You may need to run codev login on next use")
                 )
@@ -360,7 +367,7 @@ export async function logoutAction() {
 
 
 export async function whoamiAction() {
-    const token = await getStoredToken();
+    const token = await requireAuth();
 
     if (!token.access_token) {
         console.log("No access token found. Please login.")
