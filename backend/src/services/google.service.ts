@@ -55,20 +55,21 @@ export class AIService {
     async sendMessage(
         messages: any,
         onChunk: any,
-        tools: undefined,
-        onToolCall: null
+        tools: any,
+        onToolCall: any,
     ) {
         try {
             const streamConfig = {
                 model: this.model,
-                messages: messages
+                messages: messages,
+                tools: tools,
             };
 
             //Add tools if provided with maxSteps for multi-step tool calling
-            // if (tools && Object.keys(tools).length > 0) {
-            //     streamConfig.tools = tools;
-            //     streamConfig.maxSteps = 5;
-            // }
+            if (tools && Object.keys(tools).length > 0) {
+                streamConfig.tools = tools;
+                // streamConfig.maxSteps = 5;
+            }
 
             const result = streamText(streamConfig);
 
@@ -94,8 +95,9 @@ export class AIService {
                     if (step.toolCalls && step.toolCalls.length > 0) {
                         for (const toolCall of step.toolCalls) {
                             toolCalls.push(toolCall);
+
                             if (onToolCall) {
-                                //onToolCall(toolCall);
+                                onToolCall(toolCall);
                             }
                         }
                     }
@@ -146,19 +148,19 @@ export class AIService {
      *@returns {Promise<Object>} Parsed objectt matching the Schema
      */
 
-    // async generateStructured(schema: any, prompt: string) {
-    //     try {
-    //         const result = await generateObject({
-    //             model: this.model,
-    //             schema: schema,
-    //             prompt: prompt,
-    //         });
+    async generateStructured(schema: any, prompt: string) {
+        try {
+            const result = await generateObject({
+                model: this.model,
+                schema: schema,
+                prompt: prompt,
+            });
 
-    //         return result.object;
-    //     } catch (error: any) {
-    //         console.error(chalk.red("AI Structured output Generation error:"), error.message);
-    //         console.error(chalk.red("Full errror:"), error);
-    //         throw error;
-    //     }
-    // }
+            return result.object;
+        } catch (error: any) {
+            console.error(chalk.red("AI Structured output Generation error:"), error.message);
+            console.error(chalk.red("Full errror:"), error);
+            throw error;
+        }
+    }
 }

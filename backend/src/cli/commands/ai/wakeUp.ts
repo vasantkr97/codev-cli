@@ -5,6 +5,8 @@ import prisma from "../../../lib/db";
 import { select } from "@clack/prompts";
 import { startChat } from "../../chat/chat-with-ai";
 import { Command } from "commander";
+import { startToolChat } from "../../chat/chat-with-ai-tools";
+import { startAgentChat } from "../../chat/chat-with-ai-agent";
 
 
 
@@ -74,10 +76,10 @@ const wakeUpAction = async () => {
             await startChat("chat")
             break;
         case "tools":
-            //await startToolChat();
+            await startToolChat(null);
             break;
         case "agent":
-            //await startAgentChat();
+            await startAgentChat(null);
             break
     }
 }

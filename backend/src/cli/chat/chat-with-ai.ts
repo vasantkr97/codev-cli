@@ -16,7 +16,7 @@ async function getUserfromToken() {
     const token = await getStoredToken()
 
     if (!token?.access_token) {
-        throw new Error("Not authenticated. Please run 'orbit login first.");
+        throw new Error("Not authenticated. Please run 'codev login' first.");
     }
 
     const spinner = yoctoSpinner({ text: "Authenticating..." }).start();
@@ -55,7 +55,7 @@ async function initConversation(userId, conversationId, mode) {
             margin: { top: 1, bottom: 1 },
             borderStyle: "round",
             borderColor: "cyan",
-            title: "💬 Chat Session",
+            title: "Chat Session",
             titleAlignment: "center",
         }
     )
@@ -78,7 +78,7 @@ function displayMessages(messages: any[]) {
                 margin: { left: 2, bottom: 1 },
                 borderStyle: "round",
                 borderColor: "blue",
-                title: "👤 You",
+                title: "You",
                 titleAlignment: "left",
             });
             console.log(userBox);
@@ -90,7 +90,7 @@ function displayMessages(messages: any[]) {
                 margin: { left: 2, bottom: 1 },
                 borderStyle: "round",
                 borderColor: "green",
-                title: "🤖 Assistant",
+                title: "Assistant",
                 titleAlignment: "left",
             });
             console.log(assistantBox);
@@ -104,47 +104,39 @@ async function saveMessage(conversationId: any, role: any, content: any) {
 
 
 async function getAIResponse(conversationId: any) {
-    const spinner = yoctoSpinner({ text: "AI is thinking...", color: "yellow" }).start();
+    const spinner = yoctoSpinner({ text: "Generating response...", color: "cyan" }).start();
 
     const dbMessages = await chatService.getMessages(conversationId)
     const aiMessages = chatService.formatMessagesForAI(dbMessages)
 
     let fullResponse = ""
-    let isFirstChunk = true
 
     try {
         const result = await aiService.sendMessage(aiMessages, (chunk: any) => {
-            //Stop Spinner on First chunk and show header
-            if (isFirstChunk) {
-                spinner.stop();
-                console.log("\n")
-                const header = chalk.green.bold("🤖 Assistant:")
-                console.log(header);
-                console.log(chalk.gray("-".repeat(60)));
-                isFirstChunk = false;
-            }
-
-            // Real-time streaming: print each chunk immediately as it arrives
-            //process.stdout.write(chunk);
-
             fullResponse += chunk;
-
         }, undefined, null);
 
-        console.log("\n");
-        const renderedMarkdown = renderMarkdownToTerminal(fullResponse);
-        // Trim to remove extra whitespace and ensure clean output
-        console.log(renderedMarkdown);
-        console.log("\n" + chalk.gray("─".repeat(60)) + "\n");
+        spinner.stop();
 
-        // Add newline after streaming completes, then show closing divider
-        // console.log("\n");
-        // console.log(chalk.gray("-".repeat(60)));
-        // console.log("\n");
+        // Show formatted response (ChatGPT style)
+        console.log("");
+        console.log(chalk.green.bold("  Assistant"));
+        console.log(chalk.gray("  " + "─".repeat(56)));
+        console.log("");
+
+        const renderedMarkdown = renderMarkdownToTerminal(fullResponse);
+        const indentedMarkdown = renderedMarkdown
+            .split('\n')
+            .map(line => '  ' + line)
+            .join('\n');
+        console.log(indentedMarkdown);
+        console.log("");
+        console.log(chalk.gray("  " + "─".repeat(56)));
+        console.log("");
 
         return result.content;
     } catch (error) {
-        spinner.error("failed to get Ai response");
+        spinner.error("Failed to get AI response");
         throw error
     }
 }
